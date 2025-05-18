@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Welcome | Gallery</title>
+</head>
+
+<body>
+    <!-- Hero Section -->
+     <section class="hero-section">
+        <div class="download-buttons">
+            <button class="download-btn">Download for Win</button>
+            <button class="download-btn">Download for Mac</button>
+        </div>
+
+        <div class="hero-content">
+            <h1>Responsive Image Gallery</h1>
+            <p>
+                Almost every website today have a media elements on it. In order to
+                help you with this task let us introduce you this Responsive Image
+                Gallery. It compatible with any device, have a lot of cool options for
+                customizing and will help you to create awesome media presentations of
+                your website content.
+            </p>
+        </div>
+    </section>
+
+    <!-- Galleries with Captions Section -->
+    <div class="gallery-container">
+        <h2 class="section-title">Galleries with<br />captions...</h2>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="/practice_projects/Beginner/images/boat.jpg" alt="boat" />
+                <div class="caption">Sailor Boat</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/practice_projects/Beginner/images/city.jpg" alt="City buildings" />
+                <div class="caption">City Flats</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/practice_projects/Beginner/images/art2.jpg" alt="art" />
+                <div class="caption">Art</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/practice_projects/Beginner/images/cablecar.jpg" alt="cable car" />
+                <div class="caption">Cable Car</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/practice_projects/Beginner/images/plane.jpg" alt="plane" />
+                <div class="caption">Plane</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/practice_projects/Beginner/images/plane2.jpg" alt="plane2" />
+                <div class="caption">Plane 2</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/practice_projects/Beginner/images/truck.jpg" alt="truck" />
+                <div class="caption">Trucks</div>
+            </div>
+            <div class="gallery-item">
+                <img src="/practice_projects/Beginner/images/yacht.jpg" alt="yacht" />
+                <div class="caption">Yacht</div>
+            </div>
+        </div>
+
+        <!-- Tags Section -->
+        <h2 class="section-title">...and with tags</h2>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="beautiful">Beautiful</button>
+            <button class="filter-btn" data-filter="creative">Creative</button>
+            <button class="filter-btn" data-filter="cool">Cool</button>
+            <button class="filter-btn" data-filter="awesome">Awesome</button>
+        </div>
+
+        <div class="gallery-grid" id="filtered-gallery">
+            <div class="gallery-item" data-category="beautiful cool">
+                <img src="/practice_projects/Beginner/images/Me.jpg" alt="Me" />
+            </div>
+            <div class="gallery-item" data-category="beautiful awesome">
+                <img src="/practice_projects/Beginner/images/L.jpg" alt="L" />
+            </div>
+            <div class="gallery-item" data-category="creative cool">
+                <img src="/practice_projects/Beginner/images/Richard.jpg" alt="Richard" />
+            </div>
+            <div class="gallery-item" data-category="beautiful creative">
+                <img src="/practice_projects/Beginner/images/pic1.jpg" alt="pic1" />
+            </div>
+            <div class="gallery-item" data-category="beautiful cool">
+                <img src="/practice_projects/Beginner/images/pic7Tong.jpg" alt="tong" />
+            </div>
+            <div class="gallery-item" data-category="creative awesome">
+                <img src="/practice_projects/Beginner/images/pic10.jpg" alt="pic10" />
+            </div>
+            <div class="gallery-item" data-category="beautiful creative">
+                <img src="/practice_projects/Beginner/images/pic8.jpg" alt="pic8" />
+            </div>
+            <div class="gallery-item" data-category="cool awesome">
+                <img src="/practice_projects/Beginner/images/pic9.jpg" alt="pic9" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Filter Functionality
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const galleryItems = document.querySelectorAll("#filtered-gallery .gallery-item");
+
+        filterButtons.forEach((button) => {
+            button.addEventListener("click", function () {
+                // Remove active class from all buttons
+                filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+                // Add active class to clicked button
+                this.classList.add("active");
+
+                // Get filter value
+                const filterValue = this.getAttribute("data-filter");
+
+                // Filter the gallery items
+                galleryItems.forEach((item) => {
+                    if (filterValue === "all") {
+                        item.style.display = "block";
+                    } else {
+                        if (item.getAttribute("data-category").includes(filterValue)) {
+                            item.style.display = "block";
+                        } else {
+                            item.style.display = "none";
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

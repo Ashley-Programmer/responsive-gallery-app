@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-height: 100vh;
+    /* background-image: url(/practice_projects/Beginner/images/back2.jpeg); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+nav {
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    font-size: 17px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 10px;
+}
+nav li {
+    height: 60px;
+}
+.logo {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+}
+nav a {
+    height: 100%;
+    padding: 0 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #333;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+nav a:hover {
+    background-color: #f2f2f2;
+    color: #007bff;
+}
+nav li:first-child {
+    margin-right: auto;
+}
+.hamburger,
+.close-sidebar {
+    font-size: 24px;
+    font-weight: 700;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.412);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.toggle-btn {
+    display: none;
+}
+.sidebar li {
+    width: 100%;
+}
+.sidebar a {
+    width: 100%;
+
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+.sidebar a:hover {
+    background-color: #e9ecef;
+    color: #007bff;
+}
+@media(max-width: 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+    .toggle-btn {
+        display: block;
+    }
+}
+@media(max-width: 400px), (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        font-size: 22px;
+    }
+}
